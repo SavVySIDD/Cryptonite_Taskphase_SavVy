@@ -1,14 +1,56 @@
-find -name flag 2>/dev/null
-/challenge/challenge --giveflag
+# Digesting_Documentation
 
-IN second I had to use `find -name flag 2>/dev/null` to find the flag and then use `/challenge/challenge --printfile ./flag` to get the flag
 
-IN third I had to read manual using `man challenge` then got the argument specified in the document to get the flag and captured the flag using `/challenge/challenge --wtnthn 683`
+## Step 1: Finding the Flag
 
-IN fourth I had to read manual again and then used `/flag` to search the flag keyword and used `n` to shift to the next result.
+Used the `find` command to locate the flag file, suppressing errors with `2>/dev/null`:
 
-IN fifth I has to read about the man page itself using `man man` command and then the same procedure as the previous one.
+`find /challenge/challenge -name flag 2>/dev/null`
 
-IN Sixth I had to use the `-h/-help` command to read about the challenge and then use a secret key and ultimately getting the flag.
+## Step 2: Retrieving the Flag
 
-IN Seventh I learned about the buitlins like directly using help command
+After locating the flag, used the challenge program to print the flag content:
+
+`/challenge/challenge --printfile ./flag`
+
+## Step 3: Consulting the Manual
+
+Opened the manual for the `challenge` program to explore available options:
+
+`man challenge`
+
+Found the argument to retrieve the flag:
+
+`/challenge/challenge --wtnthn 683`
+
+## Step 4: Searching in Manual
+
+Used the manual search functionality to find occurrences of the keyword "flag":
+
+`/flag`
+
+Navigated through results using `n` to find relevant information.
+
+## Step 5: Understanding the `man` Command
+
+Reviewed the manual for the `man` command to learn more about navigating manuals efficiently:
+
+`man man`
+
+## Step 6: Using Help Option
+
+Utilized the `--help` option to discover more about the challenge and the secret key:
+
+`/challenge/challenge --help`
+
+Finally, used the secret key to retrieve the flag:
+
+`/challenge/challenge --wtnthn 683`
+
+## Step 7: Using Shell Built-ins
+
+Learned about shell built-ins by using the `help` command:
+
+`help`
+
+This provided additional insights into the available commands.
