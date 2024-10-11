@@ -31,3 +31,4 @@ Here I learnd grepping the live outputs, by using the `|` the pipe operator. Sta
 Here I learnt that since | pipe command redirects only standard output we use '>&' operator to. This means that we can have a two-step process to grep through errors: first, we redirect standard error to standard output (2>& 1) and then pipe the now-combined stderr and stdout as normal (|) . Here I used `/challenge/run 2>&1 | grep "pwn"` to get the flag.
 
 ## IN 9
+Here this was hard, I had to use piping with Tee which duplicates data flowing through your pipes to any number of files provided on the command line. I used `/challenge/pwn | tee output.txt | /challenge/college` and then by catting the output.txt I got the secret code. And then `/challenge/pwn --secret 8j9QPuJO | /challenge/college` using this I got the flag.
