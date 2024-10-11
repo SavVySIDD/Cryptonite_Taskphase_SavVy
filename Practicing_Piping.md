@@ -17,3 +17,17 @@ I learned about FD (File Descriptor) numbers, which describe a communication cha
 - FD 2: Standard Error
 
 Here it asked to redirect the output and also to redirect the error by using the command `/challenge/run > myflag 2> instructions`, and then using `cat` to get the flag.
+
+## IN 5
+I learned about input redirection using `<` Here I has to use `echo COLLEGE > PWN` to make the PWN file contain the value COLLEGE and then redirect input `/challenge/run < PWN` to get the flag.
+
+## IN 6
+Here I had to store using FD 1 for getting the output `/challenge/run 1> /tmp/data.txt` and then grepped the value ` grep pwn /tmp/data.txt` and captured the flag.
+
+## IN 7
+Here I learnd grepping the live outputs, by using the `|` the pipe operator. Standard output from the command to the left of the pipe will be connected to (piped into) the standard input of the command to the right of the pipe. Like here I used ` /challenge/run | grep pwn` to capture the flag.
+
+## IN 8
+Here I learnt that since | pipe command redirects only standard output we use '>&' operator to. This means that we can have a two-step process to grep through errors: first, we redirect standard error to standard output (2>& 1) and then pipe the now-combined stderr and stdout as normal (|) . Here I used `/challenge/run 2>&1 | grep "pwn"` to get the flag.
+
+## IN 9
