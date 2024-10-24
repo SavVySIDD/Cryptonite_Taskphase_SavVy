@@ -108,3 +108,7 @@ hacker@path~adding-commands:~$
 ```
 
 ## IN 4
+I had to attach the path of `/home/hacker` at first in the `PATH` variable using `PATH=/home/hacker:$PATH`
+Then I manually created a rm using `nano rm` and added the content `#!/bin/bash
+/bin/cat /flag` in the rm.
+And then ran `/challenge/run` to get the flag and as it was automatically running rm it found it first at /home/hacker and gave the flag.
