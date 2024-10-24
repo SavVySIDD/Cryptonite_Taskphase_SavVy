@@ -32,3 +32,41 @@ Here I learnt that since | pipe command redirects only standard output we use '>
 
 ## IN 9
 Here this was hard, I had to use piping with Tee which duplicates data flowing through your pipes to any number of files provided on the command line. I used `/challenge/pwn | tee output.txt | /challenge/college` and then by catting the output.txt I got the secret code. And then `/challenge/pwn --secret 8j9QPuJO | /challenge/college` using this I got the flag.
+
+## IN 10
+In this challenge, we have /challenge/hack, /challenge/the, and /challenge/planet. Run the /challenge/hack command, and duplicate its output as input to both the /challenge/the and the /challenge/planet commands!
+So I used `tee` command in the following way and got the output-
+```
+acker@piping~writing-to-multiple-programs:~$ /challenge/hack | tee >(/challenge/the)|tee >(/challenge/planet)
+This secret data must directly and simultaneously make it to /challenge/the and 
+/challenge/planet. Don't try to copy-paste it; it changes too fast.
+407336332703929565
+Congratulations, you have duplicated data into the input of two programs! Here 
+is your flag:
+pwn.college{gWIbIDSrf0AG_NB4KAZEhb4E68q.dBDO0UDL4YzN0czW}
+hacker@piping~writing-to-multiple-programs:~$ 
+```
+
+## IN 11
+Problem:
+Now, let's put your knowledge together. You must master the ultimate piping task: redirect stdout to one program and stderr to another.
+
+The challenge here, of course, is that the | operator links the stdout of the left command with the stdin of the right command. Of course, you've used 2>&1 to redirect stderr into stdout and, thus, pipe stderr over, but this then mixes stderr and stdout. How to keep it unmixed?
+
+You will need to combine your knowledge of ``>(), 2>, and |``. How to do it is a task I'll leave to you.
+
+In this challenge, you have:
+
+/challenge/hack: this produces data on stdout and stderr
+/challenge/the: you must redirect hack's stderr to this program
+/challenge/planet: you must redirect hack's stdout to this program
+
+
+```
+Connected!
+hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack > >( /challenge/planet ) 2> >( /challenge/the )
+Congratulations, you have learned a redirection technique that even experts 
+struggle with! Here is your flag:
+pwn.college{UbL_W-AfOcm4_LM9BrACQ9tcpRL.dFDNwYDL4YzN0czW}
+hacker@piping~split-piping-stderr-and-stdout:~$
+```
